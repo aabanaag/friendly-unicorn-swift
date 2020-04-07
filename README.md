@@ -3,6 +3,13 @@ Utilizing iTunes search API using MVVM-C and RxSwift, written in Swift
 
 > NOTE: This acts as a Coding challenge for Appetiser Apps
 
+## Setup
+> NOTE: This project uses Carthage as package manager, Make sure you install Carthage first follow installation steps [here](https://github.com/Carthage/Carthage#installing-carthage)
+
+1. Clone repo
+2. Execute command `carthage update platform --iOS`
+
+
 ## Persistence
 > Your app should demonstrate the ability to save data and reuse it when the user opens the app again
 
@@ -20,4 +27,5 @@ MVVM, simply because it separates components making it maintainable and testable
 - [Moya](https://github.com/Moya/Moya)
 - [Nuke](https://github.com/kean/Nuke)
 - [Natalie](https://github.com/krzyzanowskim/Natalie)
+- [Carthage](https://github.com/Carthage/Carthage)
 
