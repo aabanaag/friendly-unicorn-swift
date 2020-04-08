@@ -1,5 +1,5 @@
 # FriendlyUnicorn
-Utilizing iTunes search API using MVVM-C and RxSwift, written in Swift
+Utilizing iTunes search API using MVVM and RxSwift, written in Swift
 
 > NOTE: This acts as a Coding challenge for Appetiser Apps
 
@@ -26,6 +26,6 @@ MVVM, simply because it separates components making it maintainable and testable
 - [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources)
 - [Moya](https://github.com/Moya/Moya)
 - [Nuke](https://github.com/kean/Nuke)
-- [Natalie](https://github.com/krzyzanowskim/Natalie)
+- [Swiftlint](https://github.com/realm/SwiftLint)
 - [Carthage](https://github.com/Carthage/Carthage)
 
