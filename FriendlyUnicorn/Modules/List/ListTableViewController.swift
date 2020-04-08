@@ -16,17 +16,15 @@ class ListTableViewController: UITableViewController {
   // MARK: - DECLARATIONS
   private let bag: DisposeBag = DisposeBag()
 
-  weak var viewModel: ListViewModel?
+  var viewModel: ListViewModel!
+  var service: ServiceManager!
   var dataSource: RxTableViewSectionedAnimatedDataSource<MovieSection>!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    service = ServiceManager()
+    viewModel = ListViewModel(service)
 
     setupTable()
 
@@ -48,6 +46,7 @@ class ListTableViewController: UITableViewController {
     guard let vm = viewModel else { return }
 
     vm.movies
+      .debug()
       .map { [MovieSection(name: "TEST", items: $0)] }
       .drive(tableView.rx.items(dataSource: dataSource))
       .disposed(by: bag)

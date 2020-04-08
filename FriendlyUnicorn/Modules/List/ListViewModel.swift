@@ -42,7 +42,9 @@ extension ListViewModel {
     ])
     .do(onNext: { print("PROGRESS: \($0.progress)")})
     .filterCompleted()
+    .debug()
     .map([Movie].self, atKeyPath: "results", using: JSONDecoder(), failsOnEmptyData: true)
+    .debug()
     .catchErrorJustReturn([])
   }
 }
