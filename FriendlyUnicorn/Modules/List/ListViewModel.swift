@@ -37,12 +37,12 @@ extension ListViewModel {
   private func fetchList() -> Observable<[Movie]> {
     return service.fetch(params: [
       "term": "star",
-      "country": "au",
+      "country": "AU",
       "media": "movie"
     ])
     .do(onNext: { print("PROGRESS: \($0.progress)")})
     .filterCompleted()
-    .map([Movie].self)
+    .map([Movie].self, atKeyPath: "results", using: JSONDecoder(), failsOnEmptyData: true)
     .catchErrorJustReturn([])
   }
 }

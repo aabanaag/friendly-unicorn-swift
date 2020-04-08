@@ -16,13 +16,13 @@ enum API {
 extension API: TargetType {
 
   var baseURL: URL {
-    return URL(string: "https://itunes.apple.com")!
+    return URL(string: "https://jsonplaceholder.typicode.com")!
   }
 
   var path: String {
     switch self {
     case .fetch:
-      return "/search"
+      return "/todos"
     }
   }
 
