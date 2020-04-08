@@ -25,6 +25,5 @@ extension ServiceManager {
 extension ServiceManager {
   func fetch(params: [String: Any]) -> Observable<ProgressResponse> {
     return provider.rx.requestWithProgress(.fetch(params))
-    .debug()
   }
 }

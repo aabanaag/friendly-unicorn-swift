@@ -23,8 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     //        navigationController.topViewController?.navigationItem.leftItemsSupplementBackButton = true
     //        splitViewController.delegate = self
 
-    guard let window = window else { return }
-    let coordinator = AppCoordinator(window: window)
+    guard let windowScene = (scene as? UIWindowScene) else { return }
+    window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+    window?.windowScene = windowScene
+
+    let coordinator = AppCoordinator(window: window!)
     coordinator.start()
   }
 

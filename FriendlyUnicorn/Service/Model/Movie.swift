@@ -46,6 +46,9 @@ struct Movie {
   let country: String
   let currency: String
   let primaryGenreName: String
+  let contentAdvisoryRating: String
+  let shortDescription: String
+  let longDescription: String
 }
 
 extension Movie: Decodable {
@@ -77,6 +80,9 @@ extension Movie: Decodable {
     case country
     case currency
     case primaryGenreName
+    case contentAdvisoryRating
+    case shortDescription
+    case longDescription
   }
 
   init(from decoder: Decoder) throws {
@@ -112,6 +118,9 @@ extension Movie: Decodable {
     country = try container.decode(String.self, forKey: .country)
     currency = try container.decode(String.self, forKey: .currency)
     primaryGenreName = try container.decode(String.self, forKey: .primaryGenreName)
+    contentAdvisoryRating = try container.decode(String.self, forKey: .contentAdvisoryRating)
+    shortDescription = try container.decode(String.self, forKey: .shortDescription)
+    longDescription = try container.decode(String.self, forKey: .longDescription)
   }
 }
 

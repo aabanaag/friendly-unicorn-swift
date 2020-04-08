@@ -32,10 +32,7 @@ class AppCoordinator: Coordinator {
     self.childCoordinators = []
     self.service = ServiceManager()
 
-    let detailVC = UINavigationController()
-    detailVC.viewControllers = [DetailViewController()]
-
-    splitViewController.viewControllers = [Storyboards.List.instantiateInitialViewController(), detailVC]
+    splitViewController.viewControllers = [Storyboards.List.instantiateInitialViewController(), Storyboards.Detail.instantiateInitialViewController()]
     self.window.rootViewController = splitViewController
     self.window.makeKeyAndVisible()
   }
