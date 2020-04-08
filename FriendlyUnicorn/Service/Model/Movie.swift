@@ -21,14 +21,12 @@ enum ExplicitType: String {
 struct Movie {
   let trackId: Int
   let collectionId: Int
-  let artistId: Int
   let wrapperType: WrapperType
   let artistName: String
   let collectionName: String
   let trackName: String
   let collectionCensoredName: String
   let trackCensoredName: String
-  let artistViewUrl: String
   let collectionViewUrl: String
   let trackViewUrl: String
   let previewUrl: String
@@ -62,7 +60,6 @@ extension Movie: Decodable {
     case trackName
     case collectionCensoredName
     case trackCensoredName
-    case artistViewUrl
     case collectionViewUrl
     case trackViewUrl
     case previewUrl
@@ -92,16 +89,14 @@ extension Movie: Decodable {
     let _trackExplicitness = try container.decode(String.self, forKey: .trackExplicitness)
 
     trackId = try container.decode(Int.self, forKey: .trackId)
-    collectionId = try container.decode(Int.self, forKey: .collectionId)
-    artistId = try container.decode(Int.self, forKey: .artistId)
+    collectionId = try container.decodeIfPresent(Int.self, forKey: .collectionId) ?? 0
     wrapperType = WrapperType(rawValue: type) ?? WrapperType.track
     artistName = try container.decode(String.self, forKey: .artistName)
-    collectionName = try container.decode(String.self, forKey: .collectionName)
+    collectionName = try container.decodeIfPresent(String.self, forKey: .collectionName) ?? ""
     trackName = try container.decode(String.self, forKey: .trackName)
-    collectionCensoredName = try container.decode(String.self, forKey: .collectionCensoredName)
+    collectionCensoredName = try container.decodeIfPresent(String.self, forKey: .collectionCensoredName) ?? ""
     trackCensoredName = try container.decode(String.self, forKey: .trackCensoredName)
-    artistViewUrl = try container.decode(String.self, forKey: .artistViewUrl)
-    collectionViewUrl = try container.decode(String.self, forKey: .collectionViewUrl)
+    collectionViewUrl = try container.decodeIfPresent(String.self, forKey: .collectionViewUrl) ?? ""
     trackViewUrl = try container.decode(String.self, forKey: .trackViewUrl)
     previewUrl = try container.decode(String.self, forKey: .previewUrl)
     artworkUrl60 = try container.decode(String.self, forKey: .artworkUrl60)
@@ -110,17 +105,17 @@ extension Movie: Decodable {
     trackPrice = try container.decode(Float.self, forKey: .trackPrice)
     collectionExplicitness = ExplicitType(rawValue: _collectionExplicitness) ?? ExplicitType.notExplicit
     trackExplicitness = ExplicitType(rawValue: _trackExplicitness) ?? ExplicitType.notExplicit
-    discCount = try container.decode(Int.self, forKey: .discCount)
-    discNumber = try container.decode(Int.self, forKey: .discNumber)
-    trackCount = try container.decode(Int.self, forKey: .trackCount)
-    trackNumber = try container.decode(Int.self, forKey: .trackNumber)
+    discCount = try container.decodeIfPresent(Int.self, forKey: .discCount) ?? 0
+    discNumber = try container.decodeIfPresent(Int.self, forKey: .discNumber) ?? 0
+    trackCount = try container.decodeIfPresent(Int.self, forKey: .trackCount) ?? 0
+    trackNumber = try container.decodeIfPresent(Int.self, forKey: .trackNumber) ?? 0
     trackTimeMillis = try container.decode(Int.self, forKey: .trackTimeMillis)
     country = try container.decode(String.self, forKey: .country)
     currency = try container.decode(String.self, forKey: .currency)
     primaryGenreName = try container.decode(String.self, forKey: .primaryGenreName)
     contentAdvisoryRating = try container.decode(String.self, forKey: .contentAdvisoryRating)
-    shortDescription = try container.decode(String.self, forKey: .shortDescription)
-    longDescription = try container.decode(String.self, forKey: .longDescription)
+    shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription) ?? ""
+    longDescription = try container.decodeIfPresent(String.self, forKey: .longDescription) ?? ""
   }
 }
 

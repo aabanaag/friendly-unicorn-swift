@@ -14,13 +14,6 @@ struct ServiceManager {
   private let provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
 }
 
-// MARK: - HELPERS
-extension ServiceManager {
-  func parseServiceError(error: Error) -> Observable<APIResult<Any>> {
-    return Observable.of(APIResult.failure(APIError(message: "Something went wrong...")))
-  }
-}
-
 // MARK: - METHODS
 extension ServiceManager {
   func fetch(params: [String: Any]) -> Observable<ProgressResponse> {
