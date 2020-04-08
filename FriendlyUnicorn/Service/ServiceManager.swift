@@ -9,15 +9,25 @@
 import Moya
 import RxSwift
 import RxMoya
+//
+//private func JSONResponseDataFormatter(_ data: Data) -> String {
+//  do {
+//    let dataAsJSON = try JSONSerialization.jsonObject(with: data)
+//    let prettyData = try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
+//    return String(data: prettyData, encoding: .utf8) ?? String(data: data, encoding: .utf8) ?? ""
+//  } catch {
+//    return String(data: data, encoding: .utf8) ?? ""
+//  }
+//}
 
 struct ServiceManager {
-  private var provider: MoyaProvider<API> = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+  private var provider: MoyaProvider<API> = MoyaProvider<API>(plugins: [
+    NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
 }
 
 // MARK: - HELPERS
 extension ServiceManager {
   func parseServiceError(error: Error) -> Observable<APIResult<Any>> {
-    // TODO: Temp Implementation, it should parse error to retrieve error messages accurately.
     return Observable.of(APIResult.failure(APIError(message: "Something went wrong...")))
   }
 }
@@ -26,5 +36,6 @@ extension ServiceManager {
 extension ServiceManager {
   func fetch(params: [String: Any]) -> Observable<ProgressResponse> {
     return provider.rx.requestWithProgress(.fetch(params))
+    .debug()
   }
 }

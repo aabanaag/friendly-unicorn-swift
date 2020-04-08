@@ -6,7 +6,7 @@
 //  Copyright © 2020 Alexis Jr. Banaag. All rights reserved.
 //
 
-import Foundation
+import RxDataSources
 
 enum WrapperType: String {
   case track = "Track"
@@ -78,14 +78,13 @@ extension Movie: Decodable {
     case currency
     case primaryGenreName
   }
-  
+
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: MovieCodingKeys.self)
     let type = try container.decode(String.self, forKey: .wrapperType)
     let _collectionExplicitness = try container.decode(String.self, forKey: .collectionExplicitness)
     let _trackExplicitness = try container.decode(String.self, forKey: .trackExplicitness)
-    
-    
+
     trackId = try container.decode(Int.self, forKey: .trackId)
     collectionId = try container.decode(Int.self, forKey: .collectionId)
     artistId = try container.decode(Int.self, forKey: .artistId)
@@ -113,5 +112,32 @@ extension Movie: Decodable {
     country = try container.decode(String.self, forKey: .country)
     currency = try container.decode(String.self, forKey: .currency)
     primaryGenreName = try container.decode(String.self, forKey: .primaryGenreName)
+  }
+}
+
+extension Movie: IdentifiableType, Equatable {
+  typealias Identity = Int
+
+  var identity: Identity { return trackId }
+
+  // swiftlint:disable operator_whitespace
+  static func ==(lhs: Movie, rhs: Movie) -> Bool {
+    return lhs.trackId == rhs.trackId
+  }
+}
+
+struct MovieSection {
+  var name: String
+  var items: [Movie]
+}
+
+extension MovieSection: AnimatableSectionModelType {
+  var identity: String {
+    return name
+  }
+
+  init(original: MovieSection, items: [Movie]) {
+    self = original
+    self.items = items
   }
 }
