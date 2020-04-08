@@ -17,9 +17,9 @@ Utilizing iTunes search API using MVVM-C and RxSwift, written in Swift
 - It would also show a timestamp of the user's last session.
 
 ## Architecture
-> MVVM-C or Model-View-ViewModel-Coordinator pattern.
+> MVVM or Model-View-ViewModel pattern.
 
-MVVM, simply because it separates components making it maintainable and testable. The ViewModel contains most of the business logic and since it is not coupled to a view, it would be easier to create unit-test. While applying coordinator pattern to MVVM, adds an extra layer of separation, it basically prevents any view to be know other views within the app. The Coordinator organizes everything in a soft of container box.
+MVVM, simply because it separates components making it maintainable and testable. The ViewModel contains most of the business logic and since it is not coupled to a view, it would be easier to create unit-test.
 
 ## Dependencies
 - [RxSwift](https://github.com/reactiveX/rxswift)
