@@ -53,12 +53,13 @@ class ListTableViewController: UITableViewController {
       .drive(tableView.rx.items(dataSource: dataSource))
       .disposed(by: bag)
 
+    /// Save data to Disk for caching.
     sharedStream
       .drive(onNext: { movies in
         do {
-          print("saved")
           try Disk.save(movies, to: .caches, as: "movies")
         } catch let error {
+          // TODO: Temporary implementation
           print(error)
         }
       })

@@ -36,19 +36,22 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL1-KW-uFT">
-                                                <rect key="frame" x="20" y="296" width="374" height="36"/>
+                                                <rect key="frame" x="20" y="296" width="374" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="Mm1-J9-cSt"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9M-sG-CCA">
-                                                <rect key="frame" x="20" y="385" width="47" height="20.5"/>
+                                                <rect key="frame" x="20" y="429" width="47" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rti-Bp-bOJ">
-                                                <rect key="frame" x="20" y="415.5" width="374" height="200"/>
+                                                <rect key="frame" x="20" y="459.5" width="374" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="U7h-zx-kcX"/>
@@ -66,7 +69,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="av5-Ih-hKt" customClass="DetailPillLabel" customModule="FriendlyUnicorn" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="340" width="48.5" height="25"/>
+                                                <rect key="frame" x="20" y="384" width="48.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="imt-Rh-5Ha"/>
                                                 </constraints>
@@ -89,7 +92,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6s-ac-Cvp" customClass="DetailPillLabel" customModule="FriendlyUnicorn" customModuleProvider="target">
-                                                <rect key="frame" x="76.5" y="340" width="48.5" height="25"/>
+                                                <rect key="frame" x="76.5" y="384" width="48.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="OPm-ef-g8u"/>
                                                     <constraint firstAttribute="height" constant="25" id="xzm-Eq-QKJ"/>

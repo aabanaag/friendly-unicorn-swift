@@ -52,7 +52,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
   // MARK: - Split view
 
-  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+  func splitViewController(_ splitViewController: UISplitViewController,
+                           collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
       return true
   }
 

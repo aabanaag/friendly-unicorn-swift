@@ -32,7 +32,6 @@ class ListViewModel {
 // MARK: - PRIIVATE METHODS
 extension ListViewModel {
   private func getList() -> Observable<[Movie]> {
-    print("API")
     return service.fetch(params: [
       "term": "star",
       "country": "AU",
@@ -44,6 +43,7 @@ extension ListViewModel {
   }
 
   private func fetchList() -> Observable<[Movie]> {
+    /// We check if data is already cached by checking Disk. If it does exist simply return it as an Observable otherwise fetch via API.
     do {
       if Disk.exists("movies", in: .caches) {
         let retrievedList = try Disk.retrieve("movies", from: .caches, as: [Movie].self)
