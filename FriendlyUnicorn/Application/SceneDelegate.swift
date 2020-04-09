@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
     guard let navigationController = splitViewController.viewControllers.last as? UINavigationController else { return }
     navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
     navigationController.topViewController?.navigationItem.leftItemsSupplementBackButton = true
+    splitViewController.preferredDisplayMode = .allVisible
     splitViewController.delegate = self
   }
 
@@ -60,7 +61,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 //      guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
 //
 //      
-      return false
+      return true
   }
 
 }
