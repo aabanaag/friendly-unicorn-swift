@@ -11,7 +11,9 @@ import RxSwift
 import RxMoya
 
 struct ServiceManager {
-  // private let provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+  /// Uncomment if you would like to inspect the logs of each Network calls. Best suited for development environment.
+//  private let provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin(configuration: .init(logOptions: .verbose))])
+
   private let provider = MoyaProvider<API>()
 }
 

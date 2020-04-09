@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
   var window: UIWindow?
 
-
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let window = window else { return }
     guard let splitViewController = window.rootViewController as? UISplitViewController else { return }
@@ -53,7 +52,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
   // MARK: - Split view
 
-  func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+  func splitViewController(_ splitViewController: UISplitViewController,
+                           collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
       return true
   }
 
