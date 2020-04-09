@@ -28,10 +28,6 @@ class ListViewModel {
   }
 }
 
-// MARK: - PUBLIC METHODS
-extension ListViewModel {
-}
-
 // MARK: - PRIIVATE METHODS
 extension ListViewModel {
   private func fetchList() -> Observable<[Movie]> {
@@ -40,11 +36,8 @@ extension ListViewModel {
       "country": "AU",
       "media": "movie"
     ])
-    .do(onNext: { print("PROGRESS: \($0.progress)")})
     .filterCompleted()
-    .debug()
     .map([Movie].self, atKeyPath: "results", using: JSONDecoder(), failsOnEmptyData: true)
-    .debug()
     .catchErrorJustReturn([])
   }
 }
