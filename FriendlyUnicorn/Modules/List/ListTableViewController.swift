@@ -51,5 +51,16 @@ class ListTableViewController: UITableViewController {
       .drive(tableView.rx.items(dataSource: dataSource))
       .disposed(by: bag)
 
+    tableView.rx.modelSelected(Movie.self)
+      .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+      .subscribe(onNext: { [weak self] movie in
+        guard let strongSelf = self else { return }
+        guard let vc = Storyboards.Detail.instantiateInitialViewController().viewControllers.first as? DetailViewController else { return }
+
+        vc.movie = movie
+        strongSelf.showDetailViewController(vc, sender: nil)
+      })
+      .disposed(by: bag)
+
   }
 }

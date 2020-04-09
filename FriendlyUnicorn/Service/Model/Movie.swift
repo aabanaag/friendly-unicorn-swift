@@ -47,6 +47,7 @@ struct Movie {
   let contentAdvisoryRating: String
   let shortDescription: String
   let longDescription: String
+  let releaseDate: Date
 }
 
 extension Movie: Decodable {
@@ -80,6 +81,7 @@ extension Movie: Decodable {
     case contentAdvisoryRating
     case shortDescription
     case longDescription
+    case releaseDate
   }
 
   init(from decoder: Decoder) throws {
@@ -87,6 +89,7 @@ extension Movie: Decodable {
     let type = try container.decode(String.self, forKey: .wrapperType)
     let _collectionExplicitness = try container.decode(String.self, forKey: .collectionExplicitness)
     let _trackExplicitness = try container.decode(String.self, forKey: .trackExplicitness)
+    let _date = try container.decode(String.self, forKey: .releaseDate)
 
     trackId = try container.decode(Int.self, forKey: .trackId)
     collectionId = try container.decodeIfPresent(Int.self, forKey: .collectionId) ?? 0
@@ -116,6 +119,7 @@ extension Movie: Decodable {
     contentAdvisoryRating = try container.decode(String.self, forKey: .contentAdvisoryRating)
     shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription) ?? ""
     longDescription = try container.decodeIfPresent(String.self, forKey: .longDescription) ?? ""
+    releaseDate = Date(dateString: _date)
   }
 }
 
