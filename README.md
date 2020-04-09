@@ -13,8 +13,7 @@ Utilizing iTunes search API using MVVM and RxSwift, written in Swift
 ## Persistence
 > Your app should demonstrate the ability to save data and reuse it when the user opens the app again
 
-- Added a feature called "My List", it will consists of items that I selected from the list of items iTunes search API provided. My List will be persisted so that it will be available offline.
-- It would also show a timestamp of the user's last session.
+- The list is cached using [Disk](https://github.com/saoudrizwan/Disk).
 
 ## Architecture
 > MVVM or Model-View-ViewModel pattern.
@@ -35,4 +34,5 @@ The Conventional Commits specification is a lightweight convention on top of com
 - [Nuke](https://github.com/kean/Nuke)
 - [Swiftlint](https://github.com/realm/SwiftLint)
 - [Carthage](https://github.com/Carthage/Carthage)
+- [Disk](https://github.com/saoudrizwan/Disk)
 
