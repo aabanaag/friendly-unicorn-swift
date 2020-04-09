@@ -49,7 +49,7 @@ struct DetailViewModel {
 extension DetailViewModel {
   private func getSubDetail(movie: Movie) -> String {
     let genre = movie.primaryGenreName
-    let year = movie.releaseDate.getYearDateString()
+    let year = Date(dateString: movie.releaseDate).getYearDateString()
 
     return "\(genre) • \(year)"
   }
