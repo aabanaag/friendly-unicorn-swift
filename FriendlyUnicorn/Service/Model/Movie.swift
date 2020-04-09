@@ -18,7 +18,7 @@ enum ExplicitType: String {
   case notExplicit = "Not Explicit"
 }
 
-struct Movie {
+struct Movie: Codable {
   let trackId: Int
   let collectionId: Int
   let wrapperType: WrapperType
@@ -47,10 +47,10 @@ struct Movie {
   let contentAdvisoryRating: String
   let shortDescription: String
   let longDescription: String
-  let releaseDate: Date
+  let releaseDate: String
 }
 
-extension Movie: Decodable {
+extension Movie {
   enum MovieCodingKeys: String, CodingKey {
     case trackId
     case collectionId
@@ -89,7 +89,6 @@ extension Movie: Decodable {
     let type = try container.decode(String.self, forKey: .wrapperType)
     let _collectionExplicitness = try container.decode(String.self, forKey: .collectionExplicitness)
     let _trackExplicitness = try container.decode(String.self, forKey: .trackExplicitness)
-    let _date = try container.decode(String.self, forKey: .releaseDate)
 
     trackId = try container.decode(Int.self, forKey: .trackId)
     collectionId = try container.decodeIfPresent(Int.self, forKey: .collectionId) ?? 0
@@ -119,7 +118,41 @@ extension Movie: Decodable {
     contentAdvisoryRating = try container.decode(String.self, forKey: .contentAdvisoryRating)
     shortDescription = try container.decodeIfPresent(String.self, forKey: .shortDescription) ?? ""
     longDescription = try container.decodeIfPresent(String.self, forKey: .longDescription) ?? ""
-    releaseDate = Date(dateString: _date)
+    releaseDate = try container.decode(String.self, forKey: .releaseDate)
+  }
+
+  func encode(to encoder: Encoder) throws {
+    var container = encoder.container(keyedBy: MovieCodingKeys.self)
+
+    try container.encode(trackId, forKey: .trackId)
+    try container.encode(collectionId, forKey: .collectionId)
+    try container.encode(wrapperType.rawValue, forKey: .wrapperType)
+    try container.encode(collectionName, forKey: .collectionName)
+    try container.encode(trackName, forKey: .trackName)
+    try container.encode(artistName, forKey: .artistName)
+    try container.encode(collectionCensoredName, forKey: .collectionCensoredName)
+    try container.encode(trackCensoredName, forKey: .trackCensoredName)
+    try container.encode(collectionViewUrl, forKey: .collectionViewUrl)
+    try container.encode(trackViewUrl, forKey: .trackViewUrl)
+    try container.encode(previewUrl, forKey: .previewUrl)
+    try container.encode(artworkUrl60, forKey: .artworkUrl60)
+    try container.encode(artworkUrl100, forKey: .artworkUrl100)
+    try container.encode(collectionPrice, forKey: .collectionPrice)
+    try container.encode(trackPrice, forKey: .trackPrice)
+    try container.encode(collectionExplicitness.rawValue, forKey: .collectionExplicitness)
+    try container.encode(trackExplicitness.rawValue, forKey: .trackExplicitness)
+    try container.encode(discCount, forKey: .discCount)
+    try container.encode(discNumber, forKey: .discNumber)
+    try container.encode(trackCount, forKey: .trackCount)
+    try container.encode(trackNumber, forKey: .trackNumber)
+    try container.encode(trackTimeMillis, forKey: .trackTimeMillis)
+    try container.encode(country, forKey: .country)
+    try container.encode(currency, forKey: .currency)
+    try container.encode(primaryGenreName, forKey: .primaryGenreName)
+    try container.encode(contentAdvisoryRating, forKey: .contentAdvisoryRating)
+    try container.encode(shortDescription, forKey: .shortDescription)
+    try container.encode(longDescription, forKey: .longDescription)
+    try container.encode(releaseDate, forKey: .releaseDate)
   }
 }
 

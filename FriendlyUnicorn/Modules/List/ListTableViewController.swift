@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Disk
 
 class ListTableViewController: UITableViewController {
 
@@ -45,10 +46,22 @@ class ListTableViewController: UITableViewController {
   private func bindTable() {
     guard let vm = viewModel else { return }
 
-    vm.movies
-      .debug()
-      .map { [MovieSection(name: "TEST", items: $0)] }
+    let sharedStream = vm.movies.asSharedSequence()
+
+    sharedStream
+      .map { [MovieSection(name: "", items: $0)] }
       .drive(tableView.rx.items(dataSource: dataSource))
+      .disposed(by: bag)
+
+    sharedStream
+      .drive(onNext: { movies in
+        do {
+          print("saved")
+          try Disk.save(movies, to: .caches, as: "movies")
+        } catch let error {
+          print(error)
+        }
+      })
       .disposed(by: bag)
 
     tableView.rx.modelSelected(Movie.self)

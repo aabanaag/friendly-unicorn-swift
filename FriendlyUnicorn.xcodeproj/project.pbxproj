@@ -13,6 +13,8 @@
 		6C9CC23D243F1DB300C7D240 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CC23C243F1DB300C7D240 /* Helper.swift */; };
 		6C9CC240243F2FDA00C7D240 /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CC23F243F2FDA00C7D240 /* Storyboards.swift */; };
 		6C9CC243243F3D6A00C7D240 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9CC242243F3D6A00C7D240 /* Date.swift */; };
+		6C9CC245243F6F6600C7D240 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9CC244243F6F6600C7D240 /* Disk.framework */; };
+		6C9CC246243F6F6600C7D240 /* Disk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C9CC244243F6F6600C7D240 /* Disk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C9DEEEB243DFD050059A14B /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9DEEEA243DFD050059A14B /* ListTableViewCell.swift */; };
 		6C9DEEED243E00910059A14B /* PaginatedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9DEEEC243E00910059A14B /* PaginatedResult.swift */; };
 		6CAA768B243E4984004E723D /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CAA768A243E4984004E723D /* Detail.storyboard */; };
@@ -37,6 +39,20 @@
 		6CDDA962243D0375007C20C7 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDDA961243D0375007C20C7 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6C9CC247243F6F6700C7D240 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6C9CC246243F6F6600C7D240 /* Disk.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6C5D7619243DDA76007A2CED /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		6C5D761D243DE4C2007A2CED /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +60,7 @@
 		6C9CC23C243F1DB300C7D240 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		6C9CC23F243F2FDA00C7D240 /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Storyboards.swift; path = FriendlyUnicorn/Storyboards.swift; sourceTree = SOURCE_ROOT; };
 		6C9CC242243F3D6A00C7D240 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		6C9CC244243F6F6600C7D240 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		6C9DEEEA243DFD050059A14B /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		6C9DEEEC243E00910059A14B /* PaginatedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedResult.swift; sourceTree = "<group>"; };
 		6CAA768A243E4984004E723D /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
@@ -88,6 +105,7 @@
 				6CDDA952243CFA24007C20C7 /* RxRelay.framework in Frameworks */,
 				6CDDA948243CFA24007C20C7 /* RxMoya.framework in Frameworks */,
 				6CDDA94E243CFA24007C20C7 /* RxDataSources.framework in Frameworks */,
+				6C9CC245243F6F6600C7D240 /* Disk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +226,7 @@
 		6CDDA934243CF981007C20C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C9CC244243F6F6600C7D240 /* Disk.framework */,
 				6CDDA943243CFA23007C20C7 /* RxCocoa.framework */,
 				6CDDA944243CFA23007C20C7 /* RxDataSources.framework */,
 				6CDDA941243CFA23007C20C7 /* RxMoya.framework */,
@@ -256,6 +275,7 @@
 				6C5D7623243DE666007A2CED /* Swiftlint */,
 				6C9CC23E243F2FAE00C7D240 /* Natalie */,
 				6CDDA92C243CE0D6007C20C7 /* Carthage */,
+				6C9CC247243F6F6700C7D240 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -369,6 +389,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxNuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (

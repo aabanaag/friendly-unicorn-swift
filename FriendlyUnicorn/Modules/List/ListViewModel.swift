@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import Disk
 
 // MARK: - DECLARATIONS
 class ListViewModel {
@@ -30,7 +31,8 @@ class ListViewModel {
 
 // MARK: - PRIIVATE METHODS
 extension ListViewModel {
-  private func fetchList() -> Observable<[Movie]> {
+  private func getList() -> Observable<[Movie]> {
+    print("API")
     return service.fetch(params: [
       "term": "star",
       "country": "AU",
@@ -39,5 +41,19 @@ extension ListViewModel {
     .filterCompleted()
     .map([Movie].self, atKeyPath: "results", using: JSONDecoder(), failsOnEmptyData: true)
     .catchErrorJustReturn([])
+  }
+
+  private func fetchList() -> Observable<[Movie]> {
+    do {
+      if Disk.exists("movies", in: .caches) {
+        let retrievedList = try Disk.retrieve("movies", from: .caches, as: [Movie].self)
+
+        return Observable.of(retrievedList)
+      }
+    } catch let error {
+      print(error)
+    }
+
+    return getList()
   }
 }
