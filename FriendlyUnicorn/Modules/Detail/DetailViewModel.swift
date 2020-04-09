@@ -14,8 +14,8 @@ struct DetailViewModel {
   var trackName: Driver<String> {
     return _trackName.asDriver(onErrorJustReturn: "")
   }
-  var subLabel: Driver<String> {
-    return _subLabel.asDriver(onErrorJustReturn: "")
+  var genre: Driver<String> {
+    return _genre.asDriver(onErrorJustReturn: "")
   }
   var longDescription: Driver<String> {
     return _longDescription.asDriver(onErrorJustReturn: "")
@@ -30,7 +30,7 @@ struct DetailViewModel {
   /// PRIVATE
   private var service: ServiceManager!
   private var _trackName: Observable<String>!
-  private var _subLabel: Observable<String>!
+  private var _genre: Observable<String>!
   private var _longDescription: Observable<String>!
   private var _artistName: Observable<String>!
   private var _price: Observable<String>!
@@ -39,7 +39,7 @@ struct DetailViewModel {
     self.service = service
 
     _trackName = Observable.just(movie.trackName)
-    _subLabel = Observable.just(getSubDetail(movie: movie))
+    _genre = Observable.just(movie.primaryGenreName)
     _longDescription = Observable.just(movie.longDescription)
     _artistName = Observable.just(movie.artistName)
     _price = Observable.just(Helper().format(price: movie.trackPrice, with: movie.currency))

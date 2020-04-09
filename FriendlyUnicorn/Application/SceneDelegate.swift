@@ -12,7 +12,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UISplitViewControllerDe
 
   var window: UIWindow?
 
-
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     guard let window = window else { return }
     guard let splitViewController = window.rootViewController as? UISplitViewController else { return }

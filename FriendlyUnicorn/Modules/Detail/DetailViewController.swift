@@ -15,17 +15,18 @@ class DetailViewController: UIViewController {
   // MARK: - DECLARATIONS
   private let bag: DisposeBag = DisposeBag()
   private var player: AVPlayer!
+  private var tapGesture: UITapGestureRecognizer!
 
   var viewModel: DetailViewModel!
   var service: ServiceManager!
   var movie: Movie!
-  
+
   @IBOutlet weak var videoPreview: UIView!
   @IBOutlet weak var trackNameLabel: UILabel!
-  @IBOutlet weak var subLabel: UILabel!
+  @IBOutlet weak var genreLabel: DetailPillLabel!
   @IBOutlet weak var longDescription: UITextView!
   @IBOutlet weak var artistNameLabel: UILabel!
-  @IBOutlet weak var priceLabel: UILabel!
+  @IBOutlet weak var priceLabel: DetailPillLabel!
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -50,8 +51,8 @@ class DetailViewController: UIViewController {
       .drive(trackNameLabel.rx.text)
       .disposed(by: bag)
 
-    viewModel.subLabel
-    .drive(subLabel.rx.text)
+    viewModel.genre
+    .drive(genreLabel.rx.text)
     .disposed(by: bag)
 
     viewModel.longDescription
@@ -73,6 +74,7 @@ class DetailViewController: UIViewController {
     let playerLayer = AVPlayerLayer(player: player)
     playerLayer.frame = videoPreview.layer.bounds
     videoPreview.layer.addSublayer(playerLayer)
+
     player.play()
   }
 }
