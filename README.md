@@ -13,7 +13,7 @@ Utilizing iTunes search API using MVVM and RxSwift, written in Swift
 ## Persistence
 > Your app should demonstrate the ability to save data and reuse it when the user opens the app again
 
-- The list is cached using [Disk](https://github.com/saoudrizwan/Disk).
+- The list is cached using [Disk](https://github.com/saoudrizwan/Disk). At first load the list are pulled via Network request. The next succeeding open it will only pull the data from the cached directory.
 
 ## Architecture
 > MVVM or Model-View-ViewModel pattern.
