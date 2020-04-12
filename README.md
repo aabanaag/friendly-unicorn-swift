@@ -5,6 +5,7 @@ Utilizing iTunes search API using MVVM and RxSwift, written in Swift
 
 ## Setup
 > NOTE: This project uses Carthage as package manager, Make sure you install Carthage first follow installation steps [here](https://github.com/Carthage/Carthage#installing-carthage)
+> NOTE: This project requires swiftlint installed locally. Follow steps [here](https://github.com/realm/SwiftLint#installation)
 
 1. Clone repo
 2. Execute command `carthage update platform --iOS`
