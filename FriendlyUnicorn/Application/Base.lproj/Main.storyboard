@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QU5-f3-a5G">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+    </dependencies>
+    <scenes>
+        <!--Split View Controller-->
+        <scene sceneID="Fhg-wN-RUW">
+            <objects>
+                <splitViewController id="QU5-f3-a5G" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="zLO-U5-AU6" kind="relationship" relationship="masterViewController" id="bc6-tp-Wed"/>
+                        <segue destination="yMx-ur-gN3" kind="relationship" relationship="detailViewController" id="0n6-lm-PJs"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6c0-Qs-8lp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-764" y="-197"/>
+        </scene>
+        <!--list-->
+        <scene sceneID="eU8-s6-kED">
+            <objects>
+                <viewControllerPlaceholder storyboardName="List" referencedIdentifier="list" id="zLO-U5-AU6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEA-6Q-193" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="-347"/>
+        </scene>
+        <!--detail-->
+        <scene sceneID="QzK-ZT-TRp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" referencedIdentifier="detail" id="yMx-ur-gN3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S26-Ij-RCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33" y="-44"/>
+        </scene>
+    </scenes>
+</document>
